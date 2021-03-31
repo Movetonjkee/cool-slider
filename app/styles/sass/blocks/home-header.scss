@@ -7,6 +7,9 @@ body, html {
     height: 100%;
     color: #fff;
     padding-top: $size;
+    @include media-breakpoint-down(sm) {
+        padding-top: $size-sm;
+    }
 }
 .top-line {
 
@@ -19,6 +22,9 @@ body, html {
     background-color: $deep;
     display: flex;
     align-items: center;
+    @include media-breakpoint-down(sm) {
+        height: $size-sm;
+    }
 		// .top-line__decoration
 
 		&__decoration {
@@ -33,6 +39,9 @@ body, html {
                 opacity: $border-opacity*2;
                 position: relative;
                 top: -5px;
+            }
+            @include media-breakpoint-down(sm) {
+                display: none;
             }
 		}
 
@@ -72,7 +81,11 @@ body, html {
             }
 }
 
-
+@include media-breakpoint-down(sm) {
+    .top-line__separator, .top-line__address {
+        display: none;
+    }
+}
 .logo {
     flex: 0 0 200px;
     display: flex;
@@ -93,15 +106,33 @@ body, html {
         display: flex;
         align-items: center;
         justify-content: center;
+        @include media-breakpoint-down(sm) {
+            width: $size-sm;
+            height: $size-sm;
+        }
+        
+    }
+    @include media-breakpoint-down(sm) {
+        flex: 1 0 0;
     }
 
+}
+.logo__text {
+    @include media-breakpoint-down(sm) {
+        display: none;
+    }
 }
 
 .menu-button-container {
     text-align: right; 
     flex: 0 0 200px;
     height: $size;
-
+    @include media-breakpoint-down(sm) {
+        height: $size-sm;
+    }
+    @include media-breakpoint-down(md) {
+        flex: 1 0 0;
+    }
 }
 .menu-button {
     position: absolute;
@@ -114,6 +145,10 @@ body, html {
     background-repeat: no-repeat;
     background-position: center;
     transition: background .25s ease-out;
+    @include media-breakpoint-down(sm) {
+        width: $size-sm;
+        height: $size-sm;
+    }
     &:hover {
         background-color: $accent;
     }
@@ -137,6 +172,10 @@ body, html {
     align-items: center;
     justify-content: center;
     z-index: 5;
+    @include media-breakpoint-down(sm) {
+        width: $size-sm;
+        padding-top: $size-sm;
+    }
 }
 .home-aside__decoration {
     flex: 1 0 0;
@@ -144,9 +183,15 @@ body, html {
     width: 100%;
     background-repeat: no-repeat;
     background-position: center;
+    @include media-breakpoint-down(sm) {
+        display: none;
+    }
 }
 .home-aside__soc {
     flex: 1 0 0;
+    @include media-breakpoint-down(sm) {
+       margin-top: 40px;
+    }
 
 }
 .soc-item{
@@ -186,6 +231,10 @@ body, html {
     background-size: 12px;
     background-repeat: no-repeat;
     background-position: center;
+    @include media-breakpoint-down(sm) {
+        width: $size-sm;
+        flex: 0 0 $size-sm;
+    }
 }
 
 
@@ -196,6 +245,9 @@ body, html {
     height: 100%;
     overflow: hidden;
     position: relative;
+    @include media-breakpoint-down(sm) {
+        padding-left: $size-sm;
+    }
 }
 
 .slider-bottom {
@@ -207,6 +259,11 @@ body, html {
     left: $size;
     z-index: 5;
     width: calc(75% - #{$size});
+    @include media-breakpoint-down(sm) {
+        height: $size-sm;
+        left: $size-sm;
+        width: 100%;
+    }
 
 }
 .slider-share {
@@ -245,6 +302,9 @@ body, html {
     .swiper-button-next {
         right: 0;
     }
+    @include media-breakpoint-down(sm) {
+        left: -20px;
+    }
 }
 .slider-share__items {
     display: flex;
@@ -258,6 +318,10 @@ body, html {
     background-color: $dark;
     border-right: 1px solid rgba(#fff, $border-opacity);
     //margin-left: -.5px;
+    @include media-breakpoint-down(sm) {
+        width: $size-sm;
+        height: $size-sm;
+    }
 
     &:last-child {
         border: none;
@@ -287,6 +351,9 @@ body, html {
         background-color: rgba(#000, .45);
         z-index: 2;
     }
+    @include media-breakpoint-down(sm) {
+        width: 100%;
+    }
 }
 .slider-img__slide {
     height: 100%;
@@ -302,6 +369,9 @@ body, html {
     z-index: 3;
     width: 100%;
     height: calc(100% - #{$size});
+    @include media-breakpoint-down(sm) {
+        height: calc(100% - #{$size-sm});
+    }
 }
 .slider-text__slide {
     display: flex;
@@ -315,6 +385,9 @@ body, html {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    @include media-breakpoint-down(sm) {
+        padding-left: 20px;
+    }
 }
 .slider-text__heading {
     text-transform: uppercase;
@@ -327,6 +400,16 @@ body, html {
         color: $accent;
         white-space: nowrap;
     }
+    @include media-breakpoint-down(md) {
+        font-size: 50px;
+        max-width: 500px;
+    }
+    @include media-breakpoint-down(sm) {
+        font-size: 35px;
+    }
+    @include media-breakpoint-down(xs) {
+        font-size: 25px;
+    }
 }
 .slider-text__desc {
     float: right;
@@ -336,6 +419,9 @@ body, html {
     margin-top: 15px;
     margin-bottom: 20px;
     clear: both;
+    @include media-breakpoint-down(sm) {
+        font-size: 12px;
+    }
 }
 
 .slider-text__button {
@@ -350,6 +436,8 @@ body, html {
     align-items: center;
     height: $size;
     position: relative;
+    
+    
     .swiper-pagination-bullet {
         width: 6px;
         height: 6px;
@@ -372,6 +460,10 @@ body, html {
             top: -4px;
         }
     }
+    @include media-breakpoint-down(sm) {
+        height: $size-sm;
+        display: none;
+    }
 }
 
 .slider-scrollbar {
@@ -385,6 +477,10 @@ body, html {
         background-color: $accent;
         top: -1px;
         cursor: pointer;
+        
+    }
+    @include media-breakpoint-down(sm) {
+        display: none;
     }
 }
 .slider-gear {
@@ -398,6 +494,9 @@ body, html {
     right: calc(24.1% - 235px);
     margin-top: -270px;
     z-index: 2;
+    @include media-breakpoint-down(sm) {
+        display: none;
+    }
 }
 
 .slider-pagination-count {
@@ -417,6 +516,14 @@ body, html {
         min-width: 42px;
         text-align: center;
     }
+    @include media-breakpoint-down(md) {
+        top: 0;
+        right: 0;
+        transform: scale(.6);
+    }
+    @include media-breakpoint-down(sm) {
+        display: none;
+    }
 }
 .slider-pagination-current {
     right: 40px;
@@ -430,5 +537,10 @@ body, html {
     &__dot {
         color: $accent;
         -webkit-text-stroke: transparent;
+    }
+    @include media-breakpoint-down(md) {
+        right: 20px;
+        font-size: 50px;
+        bottom: 0;
     }
 }
